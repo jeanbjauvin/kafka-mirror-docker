@@ -47,14 +47,14 @@ IP=$(grep "\${HOSTNAME}" /etc/hosts | head -n 1 | awk '{print $1}')
 # string with multiple Kafka consumer hosts
 [ -z "$KAFKA_CONSUMER_CONNECTION_STRING" ] && KAFKA_CONSUMER_CONNECTION_STRING="${KAFKA_CONSUMER_IP}:${KAFKA_CONSUMER_PORT:-9092}"
 
-cat /kafka/conf/consumer.properties.template | sed \
+cat /conf/consumer.properties.template | sed \
 -e "s|{{KAFKA_CONSUMER_CONNECTION_STRING}}|${KAFKA_CONSUMER_CONNECTION_STRING}" \
 -e "s|{{KAFKA_MIRROR_GROUP}}|${KAFKA_MIRROR_GROUP:-group1}"
-> /kafka/conf/consumer.properties
+> /conf/consumer.properties
 
-cat /kafka/conf/producer.properties.template | sed \
+cat /conf/producer.properties.template | sed \
 -e "s|{{KAFKA_CONSUMER_CONNECTION_STRING}}|${KAFKA_CONSUMER_CONNECTION_STRING}"
-> /kafka/conf/producer.properties
+> /conf/producer.properties
 
 echo "Starting kafka"
 exec /kafka/bin/kafka-mirror-maker.sh \
