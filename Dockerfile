@@ -46,6 +46,4 @@ RUN mkdir /kafka \
 
 USER kafka
 
-VOLUME [ "/conf" ]
-
 ENTRYPOINT [ "/start.sh" ]
