@@ -47,11 +47,11 @@ IP=$(grep "\${HOSTNAME}" /etc/hosts | head -n 1 | awk '{print $1}')
 
 cat /conf/consumer.properties.template | sed \
 -e "s|{{KAFKA_CONSUMER_CONNECTION_STRING}}|${KAFKA_CONSUMER_CONNECTION_STRING}|g" \
--e "s|{{KAFKA_MIRROR_GROUP}}|${KAFKA_MIRROR_GROUP:-group1}|g"
+-e "s|{{KAFKA_MIRROR_GROUP}}|${KAFKA_MIRROR_GROUP:-group1}|g" \
 > /conf/consumer.properties
 
 cat /conf/producer.properties.template | sed \
--e "s|{{KAFKA_PRODUCER_CONNECTION_STRING}}|${KAFKA_PRODUCER_CONNECTION_STRING}|g"
+-e "s|{{KAFKA_PRODUCER_CONNECTION_STRING}}|${KAFKA_PRODUCER_CONNECTION_STRING}|g" \
 > /conf/producer.properties
 
 echo "Starting kafka"
