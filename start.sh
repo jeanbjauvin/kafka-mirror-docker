@@ -53,7 +53,7 @@ cat /conf/consumer.properties.template | sed \
 > /conf/consumer.properties
 
 cat /conf/producer.properties.template | sed \
--e "s|{{KAFKA_PRODUCER_CONNECTION_STRING}}|${KAFKA_CONSUMER_CONNECTION_STRING}|g"
+-e "s|{{KAFKA_PRODUCER_CONNECTION_STRING}}|${KAFKA_PRODUCER_CONNECTION_STRING}|g"
 > /conf/producer.properties
 
 echo "Starting kafka"
