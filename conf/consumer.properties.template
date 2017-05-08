@@ -1,0 +1,7 @@
+partition.assignment.strategy=org.apache.kafka.clients.consumer.RoundRobinAssignor
+group.id={{KAFKA_MIRROR_GROUP}}
+bootstrap.servers={{KAFKA_CONSUMER_CONNECTION_STRING}}
+exclude.internal.topics=true
+client.id=mirror_maker_consumer
+enable.auto.commit=false
+auto.offset.reset=earliest

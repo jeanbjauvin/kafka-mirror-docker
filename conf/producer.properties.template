@@ -1,0 +1,6 @@
+bootstrap.servers={{KAFKA_PRODUCER_CONNECTION_STRING}}
+client.id=mirror_maker_producer
+max.in.flight.requests.per.connection=1
+retries=100000
+acks=-1
+max.block.ms=86400000
