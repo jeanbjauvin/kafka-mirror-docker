@@ -25,21 +25,21 @@
 [ -n "$WHITELIST" ] && LIST="--whitelist ${WHITELIST}"
 [ -n "$BLACKLIST" ] && LIST="--blacklist ${BLACKLIST}"
 
-# If a Kafka producer container is linked with the alias `kafka-producer`, use it.
+# If a Kafka producer container is linked with the alias `producer`, use it.
 # Otherwise, KAFKA_PRODUCER_IP must be set in env.
 # Optionally, a KAFKA_PRODUCER_PORT can be set in env.
-[ -n "$KAFKA-PRODUCER_PORT_9092_TCP_ADDR" ] && KAFKA_PRODUCER_IP=$KAFKA-PRODUCER_PORT_9092_TCP_ADDR
-[ -n "$KAFKA-PRODUCER_PORT_9092_TCP_PORT" ] && KAFKA_PRODUCER_PORT=$KAFKA-PRODUCER_PORT_9092_TCP_PORT
+[ -n "$PRODUCER_PORT_9092_TCP_ADDR" ] && KAFKA_PRODUCER_IP=$PRODUCER_PORT_9092_TCP_ADDR
+[ -n "$PRODUCER_PORT_9092_TCP_PORT" ] && KAFKA_PRODUCER_PORT=$PRODUCER_PORT_9092_TCP_PORT
 
 # Concatenate ti IP and PORT for Kafka producer to allow setting a full connection
 # string with multiple Kafka producer hosts
 [ -z "$KAFKA_PRODUCER_CONNECTION_STRING" ] && KAFKA_PRODUCER_CONNECTION_STRING="${KAFKA_PRODUCER_IP}:${KAFKA_PRODUCER_PORT:-9092}"
 
-# If a Kafka consumer container is linked with the alias `kafka-consumer`, use it.
+# If a Kafka consumer container is linked with the alias `consumer`, use it.
 # Otherwise, KAFKA_CONSUMER_IP must be set in env.
 # Optionally, a KAFKA_CONSUMER_PORT can be set in env.
-[ -n "$KAFKA-CONSUMER_PORT_9092_TCP_ADDR" ] && KAFKA_CONSUMER_IP=$KAFKA-CONSUMER_PORT_9092_TCP_ADDR
-[ -n "$KAFKA-CONSUMER_PORT_9092_TCP_PORT" ] && KAFKA_CONSUMER_PORT=$KAFKA-CONSUMER_PORT_9092_TCP_PORT
+[ -n "$CONSUMER_PORT_9092_TCP_ADDR" ] && KAFKA_CONSUMER_IP=$CONSUMER_PORT_9092_TCP_ADDR
+[ -n "$CONSUMER_PORT_9092_TCP_PORT" ] && KAFKA_CONSUMER_PORT=$CONSUMER_PORT_9092_TCP_PORT
 
 IP=$(grep "\${HOSTNAME}" /etc/hosts | head -n 1 | awk '{print $1}')
 
