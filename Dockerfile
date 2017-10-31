@@ -1,4 +1,4 @@
-# Builds an image for Apache Kafka mirror-maker 0.10.2.1
+# Builds an image for Apache Kafka mirror-maker 0.11.0.1
 
 # This file is part of kafka-mirror-docker.
 #
@@ -25,9 +25,9 @@ FROM openjdk:8-alpine
 
 LABEL maintainer="Jean Bruno JAUVIN <jeanbjauvin@gmail.com>" \
   name="Kafka" \
-  version="0.10.2.1"
+  version="0.11.0.1"
 
-ENV KAFKA_VERSION=0.10.2.1 \
+ENV KAFKA_VERSION=0.11.0.1 \
   KAFKA_SCALA_VERSION=2.12 \
   KAFKA_HOME=/kafka
 
